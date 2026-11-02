@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pokemon-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Pokémon Details </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="pokemon">
+  <ion-card>
+    <ion-button (click)="goToPreviousPokemon()" color="primary" shape="round"expand="full"><ion-icon slot="icon-only" name="arrow-back-circle"></ion-icon></ion-button>
+    <div class="image-container">
+      <img class="fundo" src="/assets/pokebalBg.png" alt="pokebola">
+      <ion-img [src]="getPokemonImage(pokemon)" alt="imagem do pokemon"></ion-img>
+    </div>
+    <ion-button (click)="goToNextPokemon()" color="primary" shape="round" expand="block"><ion-icon slot="icon-only" name="arrow-forward-circle"></ion-icon></ion-button>
+    <ion-card-header>
+      <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+      <ion-card-subtitle class="pokemon-card__number">Nº {{getPokemonNumber(pokemon)}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <h2><strong>Height:</strong> {{ pokemon.height }} ft</h2>
+      <h2><strong>Weight:</strong> {{ pokemon.weight }} lb</h2><br>
+      <h1>{{ pokemon.description }}</h1>
+    </ion-card-content>
+    <ion-card-content>
+      <div class="pokemon-card__types">
+        <div class="pokemon-card__type" *ngFor="let type of pokemon.types" [class]="'pokemon-card__type--' + type">{{type}}</div>
+      </div>
+    </ion-card-content>
+    <ion-button id="choro" (click)="makeCry(pokemon!)" color="danger" shape="round">
+      <ion-icon slot="icon-only" name="volume-high"></ion-icon>
+    </ion-button>
+  </ion-card>
+</ion-content>
+
+

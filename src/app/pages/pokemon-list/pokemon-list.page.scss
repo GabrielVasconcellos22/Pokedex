@@ -1,0 +1,39 @@
+#paraMusica{
+    margin-left: 90%;
+
+}
+
+#paraMusica.paused ion-icon {
+    color : red
+    
+}
+ion-row {
+    width: 100%;
+}
+ion-avatar {
+    --border-radius: 4px;
+  }
+ion-title {
+    font-family: oswald, sans-serif;
+}
+
+#paraMusica{
+    position: absolute;
+    right: 20%;
+    top: 10%;
+    
+
+}
+ion-header{
+    background-color: rgb(166, 25, 25);
+    height: 150px;
+    border-radius: 10px;
+}
+ion-searchbar{
+    position: absolute;
+    top: 50%;
+}
+ion-title{
+    color: aliceblue;
+    font-size: 40px;
+}

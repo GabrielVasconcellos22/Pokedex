@@ -1,0 +1,12 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+:root {
+    --ion-background-color: #ffffff; // Fundo branco para o tema claro
+    --ion-background-color-rgb: 255, 255, 255; // Cor de fundo branco em RGB
+  }
+  
+  [theme="dark"] {
+    --ion-background-color: #ffffff; // Mantém o fundo branco mesmo no tema escuro
+    --ion-background-color-rgb: 255, 255, 255; // Cor de fundo branco em RGB no tema escuro
+  }
+  

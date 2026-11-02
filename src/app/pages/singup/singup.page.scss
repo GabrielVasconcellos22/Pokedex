@@ -1,0 +1,53 @@
+ion-content {
+  --background: #fff url("/assets/bg.jpg") no-repeat center center / cover;
+}
+
+.input {
+  font-size: 20px;
+}
+ion-item {
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+.header {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  .subTitle {
+    margin-top: 5px;
+    color: #ffc33f;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .title {
+    color: aliceblue;
+    font-size: 35px;
+    font-weight: bold;
+  }
+}
+.forgotpassword {
+  position: relative;
+  margin-left: 237px;
+}
+a {
+  text-decoration: none;
+  font-size: 16px;
+}
+.text {
+  position: relative;
+
+  color: aliceblue;
+  text-align: center;
+
+  font-size: 16px;
+}
+.ion-padding {
+  width: 100%;
+  position: absolute;
+  top: 9%;
+}
+.btn-signup {
+  position: absolute;
+  right: 3%;
+  top: 88%;
+}

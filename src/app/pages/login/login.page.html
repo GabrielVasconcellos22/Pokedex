@@ -1,0 +1,82 @@
+<ion-content>
+  <div class="header">
+    <ion-title class="title">Login</ion-title>
+    <p class="subTitle">Faça o Login para Acessar o Conteúdo Pokémon</p>
+  </div>
+
+  <form [formGroup]="loginForm">
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input
+          formControlName="email"
+          class="input"
+          placeholder="Digite seu e-mail"
+        ></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div
+        *ngIf="loginForm.controls?.['email'].touched && loginForm.controls?.['email'].invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['email'].errors['required']"
+          style="color: #ffc33f"
+        >
+          Campo email é Obrigatório
+        </ion-text>
+        <ion-text
+          *ngIf="errorControl['email'].errors['pattern']"
+          style="color: #ffc33f"
+        >
+          Campo E-mail inválido
+        </ion-text>
+      </div>
+
+      <ion-item>
+        <ion-input
+          formControlName="password"
+          class="input"
+          [(ngModel)]="password"
+          type="password"
+          placeholder="Digite sua senha"
+        >
+          <ion-input-password-toggle
+            slot="end"
+            color="medium"
+          ></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+      <div
+        *ngIf="loginForm.controls?.['password'].touched && loginForm.controls?.['password'].invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['password'].errors['required']"
+          style="color: #ffc33f"
+        >
+          Campo Senha é Obrigatório
+        </ion-text>
+      </div>
+    </div>
+
+    <div class="forgotpassword">
+      <a [routerLink]="['/reset-password']" style="color: #ffc33f">
+        Esqueceu a Senha?</a
+      >
+    </div>
+    <div class="signup">
+      <p class="text">
+        Ainda não é Cadastrado?<a
+          [routerLink]="['/singup']"
+          style="color: #ffc33f"
+        >
+          Cadastre-se</a
+        >
+      </p>
+    </div>
+
+    <ion-fab class="btn-signup">
+      <ion-fab-button (click)="login()">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

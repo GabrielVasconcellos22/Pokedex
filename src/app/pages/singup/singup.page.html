@@ -1,0 +1,105 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-title class="title">Cadastre-se</ion-title>
+    <p class="subTitle">Inscreva-se para criar a sua conta</p>
+  </div>
+
+  <form [formGroup]="regForm" novalidate>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input
+          formControlName="nome"
+          class="input"
+          placeholder="Digite seu nome"
+        ></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div
+        *ngIf="regForm.controls?.['nome'].touched && regForm.controls?.['nome'].invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['nome'].errors['required']"
+          style="color: #ffc33f"
+        >
+          Campo nome é obrigatório
+        </ion-text>
+      </div>
+
+      <ion-item>
+        <ion-input
+          formControlName="email"
+          class="input"
+          placeholder="Digite seu e-mail"
+        ></ion-input>
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-item>
+      <div
+        *ngIf="regForm.controls?.['email'].touched && regForm.controls?.['email'].invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['email'].errors['required']"
+          style="color: #ffc33f"
+        >
+          Campo e-mail é obrigatório
+        </ion-text>
+        <ion-text
+          *ngIf="errorControl['email'].errors['pattern']"
+          style="color: #ffc33f"
+        >
+          Campo e-mail inválido
+        </ion-text>
+      </div>
+
+      <ion-item>
+        <ion-input
+          formControlName="password"
+          class="input"
+          type="password"
+          placeholder="Digite sua senha"
+        >
+          <ion-input-password-toggle
+            slot="end"
+            color="medium"
+          ></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+      <div
+        *ngIf="regForm.controls?.['password'].touched && regForm.controls?.['password'].invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['password'].errors['required']"
+          style="color: #ffc33f"
+        >
+          Campo Senha é Obrigatório
+        </ion-text>
+        <ion-text
+          *ngIf="errorControl['password'].errors['pattern']"
+          style="color: #ffc33f"
+        >
+          Campo senha deve conter: <br>
+          8 ou mais caracteres, <br>
+          1 letra minúscula, <br>
+          1 letra maiúscula, <br>
+          1 caracter especial
+        </ion-text>
+      </div>
+
+      <div>
+        <p class="text">
+          Já possui cadastro?<a
+            [routerLink]="['/login']"
+            style="color: #ffc33f"
+          >
+            Faça seu Login</a
+          >
+        </p>
+      </div>
+
+      <ion-fab class="btn-signup">
+        <ion-fab-button (click)="signUp()">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+  </form>
+</ion-content>

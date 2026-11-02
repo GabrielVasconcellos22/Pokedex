@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-title> Pokedex </ion-title>
+  <ion-button id="paraMusica" [ngClass]="{'paused': audio.paused}" color="dark" shape="round" (click)="toggleSong()">
+    <ion-icon slot="icon-only" [name]="audio.paused ? 'mic-off-circle-outline' : 'mic-circle-outline'"></ion-icon>
+  </ion-button>
+  <ion-fab class="btn-logout" vertical="top" horizontal="end">
+    <ion-fab-button (click)="logout()">Logout</ion-fab-button>
+  </ion-fab>
+
+  <ion-searchbar [debounce]="1000" color="light" search-icon="search" placeholder="Ex: 'Pikachu ou 25'" show-clear-button="focus" clear-icon="trash" (ionInput)="search($event)" (keydown)="handleKeyDown($event)" ></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="pokemons">
+  <ion-grid>
+    <ion-row *ngFor="let pokemon of filteredPokemons">
+      <ion-item style="width: 100%" button (click)="goToPokemonCard(pokemon.id)">
+        <ion-thumbnail aria-hidden="true" slot="start"> 
+          <ion-img [src]="pokemon?.image" alt="imagem do pokemon"></ion-img>
+        </ion-thumbnail>
+        <h1>{{pokemon?.name | titlecase}}</h1><br>
+      </ion-item>
+    </ion-row>
+    <ion-row *ngIf="filteredPokemons.length === 0">
+      <ion-col>
+        <p>Nenhum Pokémon encontrado</p>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais pokemons"></ion-infinite-scroll-content></ion-infinite-scroll>
+</ion-content>
+
+
+<ion-button expand="block" href="devs">Desenvolvedores</ion-button>
